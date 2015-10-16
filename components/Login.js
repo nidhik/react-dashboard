@@ -19,10 +19,10 @@
  *  IN THE SOFTWARE.
  *
  */
-
 var React = require('react');
 var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
+var ReactDOM = require('react-dom');
 
 
 var Login = React.createClass({
@@ -44,12 +44,7 @@ var Login = React.createClass({
     if (this.data.user) {
       return (
         <div>
-          <a className='logOut' onClick={this.logOut}>
-            <svg viewBox='0 0 60 60'>
-              <path d="M0,0 L30,0 L30,10 L10,10 L10,50 L30,50 L30,60 L0,60 Z"></path>
-              <path d="M20,23 L40,23 L40,10 L60,30 L40,50 L40,37 L20,37 Z"></path>
-            </svg>
-          </a>
+          <a className='logOut' onClick={this.logOut}>Log Out</a>
  
         </div>
       );
@@ -73,9 +68,7 @@ var Login = React.createClass({
             <input ref='password' id='password' type='password' />
           </div>
           <div className='row centered'>
-            <a className='button' onClick={this.submit}>
-              'Log in'
-            </a>
+            <a className='button' onClick={this.submit}>Log in</a>
           </div>
         </div>
       </div>
@@ -84,8 +77,10 @@ var Login = React.createClass({
 
   submit: function() {
     var self = this;
-    var username = React.findDOMNode(this.refs.username).value;
-    var password = React.findDOMNode(this.refs.password).value;
+
+    var username = ReactDOM.findDOMNode(this.refs.username).value;
+    var password = ReactDOM.findDOMNode(this.refs.password).value;
+
     if (username.length && password.length) {
       
         Parse.User.logIn(username, password).then(function() {
