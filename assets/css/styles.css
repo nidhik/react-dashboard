@@ -1,0 +1,37 @@
+.menu {
+  font-size: 0;
+  text-align: center;
+  margin: 40px 0;
+}
+.menu a {
+  display: inline-block;
+  border-style: solid;
+  border-color: #c4e0f1;
+  border-width: 0 1px;
+  background: white;
+  height: 48px;
+  line-height: 48px;
+  width: 150px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  color: #475869;
+  cursor: pointer;
+}
+.menu a:hover {
+  background: #c4e0f1;
+}
+.menu a:first-child {
+  border-left-width: 2px;
+}
+.menu a:last-child {
+  border-right-width: 2px;
+}
+.menu a.selected {
+  background: #7999b9;
+  border-color: #7999b9;
+  border-bottom: 3px solid #475869;
+  color: white;
+}
