@@ -23,6 +23,7 @@ var React = require('react');
 var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
 var ReactDOM = require('react-dom');
+var App = require('./App');
 
 
 var Login = React.createClass({
@@ -45,7 +46,7 @@ var Login = React.createClass({
       return (
         <div>
           <a className='logOut' onClick={this.logOut}>Log Out</a>
- 
+          <App />
         </div>
       );
     }

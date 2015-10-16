@@ -1,8 +1,8 @@
 var React = require('react');
-var App = require('./components/App');
+var Login = require('./components/Login')
 var ReactDOM = require('react-dom');
 
 ReactDOM.render(
-         <App />,
+         <Login />,
          document.getElementById('main')
          );

@@ -1,6 +1,5 @@
 var React = require('react');
 var Parse = require('parse');
-var Login = require('./Login')
 
 // Insert your app's keys here:
 Parse.initialize('FFJr6PNAxs4foMv28qaqvcVNpmvWQkbAUxP8iQI9', 'TIdBCZSzADZVMml0xJ10sWqHbjmX3gtuqdQ5d5DZ');
@@ -13,7 +12,7 @@ var App = React.createClass({
 
             <div>
 
-            <Login />
+            <span>Teacher Dashboard Rollup goes here!</span>
 
             </div>
 
