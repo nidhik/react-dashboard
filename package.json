@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A React app that pulls and displays data from Parse.",
   "main": "main.js",
-  "dependencies": {},
+  "dependencies": {
+    "react-chartist": "~0.10.0"
+  },
   "devDependencies": {
     "react-dom": "~0.14.0",
     "react": "~0.14.0",
