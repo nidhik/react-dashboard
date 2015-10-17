@@ -9,15 +9,10 @@ var Words = require('./Words');
 // Insert your app's keys here:
 Parse.initialize('FFJr6PNAxs4foMv28qaqvcVNpmvWQkbAUxP8iQI9', 'TIdBCZSzADZVMml0xJ10sWqHbjmX3gtuqdQ5d5DZ');
 
-var contents = [
-  <Rollup />,
-  <Levels />,
-  <Letters />,
-  <Words />
-
-];
 
 var App = React.createClass({
+
+
   getInitialState: function() {
     return {
       currentTab: 0
@@ -25,6 +20,14 @@ var App = React.createClass({
   },
 
   render: function() {
+
+    var contents= [
+      <Rollup handleDetailSelected = {this.selectTab} />,
+      <Levels />,
+      <Letters />,
+      <Words />
+    ];
+
     return (
       <div>
         <div className='menu'>

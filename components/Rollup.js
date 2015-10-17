@@ -3,19 +3,17 @@ var Parse = require('parse');
 var ChartistGraph = require('react-chartist')
 
 var simpleChartData = {
-  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  labels: ['Michael', 'Allison', 'Nidhi', 'Erin', 'Elizabeth', 'Keenan', 'Sandra'],
   series: [
-    [5, 4, 3, 7, 5, 10, 3],
-    [3, 2, 9, 5, 4, 6, 4]
+    [5, 4, 3, 7, 5, 10, 3]
   ]
 }
 
 var myOptions = {
   seriesBarDistance: 10,
-  reverseData: true,
   horizontalBars: true,
-  axisY: {
-    offset: 70
+  axisX: {
+    scaleMinSpace: 100
   }
 }
 
@@ -27,18 +25,33 @@ var Rollup = React.createClass({
         return (
 
             <div>
+                <a onClick={this.selectDetail.bind(this, 1)}>
+                    Show Details
+                </a>
 
             <div>
                 <ChartistGraph data={simpleChartData} options = {myOptions} type={'Bar'} />
-               
-      
             </div>
-            <div>Summary Letter Progress</div>
-            <div>Summary Word Progress</div>
+            <div>
+            Summary Letter Progress
+            <a onClick={this.selectDetail.bind(this, 2)}>
+                    Show Details
+            </a>
+            </div>
+            <div>
+            Summary Word Progress
+            <a onClick={this.selectDetail.bind(this, 3)}>
+                    Show Details
+                </a>
+            </div>
 
             </div>
 
             );
+    },
+
+    selectDetail: function(tab) {
+        this.props.handleDetailSelected(tab);
     }
 
 });
