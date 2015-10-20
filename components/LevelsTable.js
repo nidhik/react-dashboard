@@ -15,7 +15,7 @@ var LevelInfo = React.createClass({
     render: function() {
     
         return (
-            <td>{ this.props.level.name }</td>
+            <td><b>{ this.props.level.name }</b></td>
         );
     }
 });
@@ -24,8 +24,7 @@ var LevelRow = React.createClass({
     render: function() {
     
         return (
-            <tr>
-                
+            <tr> 
                 { this.props.levelProgress }
             </tr>
         );
