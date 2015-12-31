@@ -7,7 +7,7 @@ var Words = require('./Words');
 
 
 // Insert your app's keys here:
-Parse.initialize('FFJr6PNAxs4foMv28qaqvcVNpmvWQkbAUxP8iQI9', 'TIdBCZSzADZVMml0xJ10sWqHbjmX3gtuqdQ5d5DZ');
+Parse.initialize('e8iYEssqLGYjSWWf0tInczX7nMuHQInzD1Evw3w5', 'Xiz5Fh3XpwR2sPutkvqKCwwF3V7wKKQyKQk7lXC3');
 
 
 var App = React.createClass({

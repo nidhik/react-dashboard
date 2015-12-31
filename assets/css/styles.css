@@ -1,14 +1,22 @@
 .menu {
-  font-size: 0;
+/*  font-size: 0;
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 0;*/
+
+  font-family: "proxima-nova",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 1em 0 1em 0;
+    text-align: center;
+    background-color: #4b384c;
 }
 .menu a {
   display: inline-block;
   border-style: solid;
   border-color: #c4e0f1;
   border-width: 0 1px;
-  background: white;
   height: 48px;
   line-height: 48px;
   width: 150px;
@@ -17,9 +25,10 @@
   font-weight: 200;
   letter-spacing: 0.1em;
   font-variant: small-caps;
-  color: #475869;
+  color: white;
   cursor: pointer;
 }
+
 .menu a:hover {
   background: #c4e0f1;
 }
@@ -35,3 +44,4 @@
   border-bottom: 3px solid #475869;
   color: white;
 }
+
