@@ -27,9 +27,30 @@ var Words = React.createClass({
       }
     },
 
-    render(){
+    render (){
         if (this.data.words) {
-            console.log(this.data.words)
+
+            console.log(this.data.words.get('order'));
+            return (
+
+            <div>
+
+            <h1>Detailed Word Proficency</h1>
+            <h2> Number of students: {this.data.students.length} </h2>
+            <h2> Number of words: { this.data.words.get('order').length } </h2> 
+
+            <ul>
+
+                {   this.data.words.get('order').map(function(w) {
+                        return <li>{ w.get('chars') }</li>;
+                    })
+                }
+
+            </ul>
+
+            </div>
+
+            );
         }
         
         return (
@@ -37,9 +58,8 @@ var Words = React.createClass({
             <div>
 
             <h1>Detailed Word Proficency</h1>
-            { this.data.students ? <h2> Number of students: {this.data.students.length} </h2> : <span>Loading Students...</span> }
-            { this.data.words? <h2> Number of words: { this.data.words.get('order').length } </h2> : <span>Loading Words...</span> }
-
+             <span>Loading Students...</span> 
+             <span>Loading Words...</span> 
             </div>
 
             );
