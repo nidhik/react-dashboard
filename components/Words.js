@@ -6,7 +6,7 @@ var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 
 var Words = React.createClass({
 
-    mixins: [ ParseCloudCodeMixin, ParseReact.Mixin],
+    mixins: [ ParseCloudCodeMixin],
     loadData: function(props, state) {
     return {
           students: {
@@ -16,20 +16,21 @@ var Words = React.createClass({
           scores: {
             name: "getScores",
             params: {
-                studentId: "WnHpzJedMu", 
-                contentListId: "ddbUcAu0AD"
+                studentId: "WnHpzJedMu"
             }
-          }
-      }
-    },
-    observe: function() {
+          },
+          words: {
+            name: "getWords",
+            params: {}
+          },
 
-        return {
-          contentList: (new Parse.Query('ContentList')).equalTo('objectId', 'ddbUcAu0AD')
-        };
+      }
     },
 
     render(){
+        if (this.data.words) {
+            console.log(this.data.words)
+        }
         
         return (
 
@@ -37,7 +38,7 @@ var Words = React.createClass({
 
             <h1>Detailed Word Proficency</h1>
             { this.data.students ? <h2> Number of students: {this.data.students.length} </h2> : <span>Loading Students...</span> }
-            { this.data.contentList.length > 0 ? <h2> Number of words: { this.data.contentList[0].order.length } </h2> : <span>Loading Words...</span> }
+            { this.data.words? <h2> Number of words: { this.data.words.get('order').length } </h2> : <span>Loading Words...</span> }
 
             </div>
 
