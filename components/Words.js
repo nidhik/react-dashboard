@@ -2,6 +2,7 @@ var React = require('react');
 var Parse = require('parse');
 var ParseReact = require('parse-react');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
+var Switch = require('./Switch');
 
 
 var WordRow = React.createClass({
@@ -80,6 +81,7 @@ var Words = React.createClass({
             <h2> Number of students: { this.data.students.length } </h2>
             <h2> Number of words: { this.data.words.get('order').length } </h2> 
 
+            <Switch />
             <WordTable words = { this.data.words.get('order') } scores = { this.data.scores } />
             
 
