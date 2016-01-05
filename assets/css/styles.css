@@ -54,6 +54,15 @@ input.cmn-toggle-round-flat + label {
   transition: background 0.4s;
 }
 
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 2px;
+  color: white;
+}
+
 /* Switch CSS from: http://callmenick.com/post/css-toggle-switch-examples*/
 
 .cmn-toggle {

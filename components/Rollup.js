@@ -1,6 +1,5 @@
 var React = require('react');
 var Parse = require('parse');
-var ChartistGraph = require('react-chartist')
 
 var simpleChartData = {
   labels: ['Michael', 'Allison', 'Nidhi', 'Erin', 'Elizabeth', 'Keenan', 'Sandra'],
@@ -29,9 +28,16 @@ var Rollup = React.createClass({
                     Show Details
                 </a>
 
-            <div>
-                <ChartistGraph data={simpleChartData} options = {myOptions} type={'Bar'} />
-            </div>
+                <div className="chart">
+                  <div style={{width: 40}}>4</div>
+                  <div style={{width: 80}}>8</div>
+                  <div style={{width: 150}}>15</div>
+                  <div style={{width: 160}}>16</div>
+                  <div style={{width: 230}}>23</div>
+                  <div style={{width: 420}}>42</div>
+                </div>
+
+            
             <div>
             Summary Letter Progress
             <a onClick={this.selectDetail.bind(this, 2)}>
