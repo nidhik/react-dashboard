@@ -6,7 +6,7 @@ var TrophyRow = React.createClass({
     
         return (
             <tr style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
-                <td dangerouslySetInnerHTML={this.createMarkup()} />
+                <td>{ this.props.index }. </td> <td/> <td dangerouslySetInnerHTML={this.createMarkup()} />
 
             </tr>
         );
@@ -27,8 +27,8 @@ var LevelsTable = React.createClass({
 
         var rows = [];
         var that = this;
-        this.props.trophies.forEach(function(trophy) {
-           rows.push(<TrophyRow trophy = { trophy } isCurrent = { trophy['id'] == currentTrophy } key = { trophy.id } />);
+        this.props.trophies.forEach(function(trophy, index) {
+           rows.push(<TrophyRow trophy = { trophy } isCurrent = { trophy['id'] == currentTrophy } index = { index } key = { trophy.id } />);
         });
 
 
