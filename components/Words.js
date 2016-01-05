@@ -46,6 +46,49 @@ var WordTable = React.createClass({
     }
 });
 
+var ProficencyComponent = React.createClass({
+    getInitialState () {
+        return {appOrder: true};
+    },
+
+    render () {
+        var wordOrder = this.props.words.get('order').slice();
+
+        if (!this.state.appOrder) {
+            wordOrder.sort(function(w0, w1) { 
+                var a = w0.get('chars');
+                var b = w1.get("chars");
+
+                if (a > b) {
+                    return 1;
+                }
+
+                if (a < b) {
+                    return -1;
+                }
+
+                return 0;
+            });
+    
+        }
+        return (
+
+            <div>
+
+            <h2> Number of words: { this.props.words.get('order').length } </h2> 
+
+            <Switch toggle = { this.toggle } />
+            <WordTable words = { wordOrder } scores = { this.props.scores } />
+
+            </div>
+
+        );
+    },
+
+    toggle () {
+        this.setState({appOrder: !this.state.appOrder});
+    }
+});
 
 var Words = React.createClass({
 
@@ -70,43 +113,13 @@ var Words = React.createClass({
       }
     },
 
-    getInitialState () {
-        return {appOrder: true};
-    },
-
     render () {
-        if (this.data.words && this.data.scores && this.data.students) {
+        if (this.data.words && this.data.scores) {
 
-            var wordOrder = this.data.words.get('order');
-            if (!this.state.appOrder) {
-                wordOrder.sort(function(w0, w1) { 
-                    var a = w0.get('chars');
-                    var b = w1.get("chars");
-
-                    if (a > b) {
-                        return 1;
-                    }
-
-                    if (a < b) {
-                        return -1;
-                    }
-
-                    return 0;
-                });
-            }
-            
             return (
 
             <div>
-
-            <h1>Detailed Word Proficency</h1>
-            <h2> Number of students: { this.data.students.length } </h2>
-            <h2> Number of words: { this.data.words.get('order').length } </h2> 
-
-            <Switch toggle = { this.toggle } />
-            <WordTable words = { wordOrder } scores = { this.data.scores } />
-            
-
+            <ProficencyComponent words = { this.data.words } scores = { this.data.scores } />
             </div>
 
             );
@@ -115,17 +128,13 @@ var Words = React.createClass({
         return (
 
             <div>
-            <h1>Detailed Word Proficency</h1>
             <span>Loading ...</span> 
             </div>
 
             );
         
     },
-
-    toggle () {
-        this.setState({appOrder: !this.state.appOrder});
-    }
+    
 
 });
 
