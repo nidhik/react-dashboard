@@ -6,7 +6,10 @@ var TrophyRow = React.createClass({
     
         return (
             <tr style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
-                <td>{ this.props.index }. </td> <td/> <td dangerouslySetInnerHTML={this.createMarkup()} />
+                <td>{ this.props.index }.
+                </td> 
+                <td/> 
+                <td dangerouslySetInnerHTML={this.createMarkup()} />
 
             </tr>
         );
