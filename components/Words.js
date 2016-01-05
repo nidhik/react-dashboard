@@ -95,10 +95,6 @@ var Words = React.createClass({
     mixins: [ ParseCloudCodeMixin],
     loadData: function(props, state) {
     return {
-          students: {
-            name: "getStudents",
-            params: {}
-          },
           scores: {
             name: "getScores",
             params: {
