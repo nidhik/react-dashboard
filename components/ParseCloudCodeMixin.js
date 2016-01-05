@@ -83,7 +83,7 @@ var ParseCloudCodeMixin = {
     }
   },
   _receiveDataFromCall: function(name, value) {
-    console.log("received value: " + JSON.stringify(value) + "for name: " + name);
+   // console.log("received value: " + JSON.stringify(value) + "for name: " + name);
     this.data[name] = value;
     delete this._pendingCalls[name];
     delete this._callErrors[name];
