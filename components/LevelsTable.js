@@ -5,7 +5,7 @@ var TrophyRow = React.createClass({
     render () {
     
         return (
-            <tr style={{borderStyle: "outset"}}> 
+            <tr style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
                 <td dangerouslySetInnerHTML={this.createMarkup()} />
 
             </tr>
@@ -23,10 +23,12 @@ var TrophyRow = React.createClass({
 var LevelsTable = React.createClass({
     render: function() {
 
+        var currentTrophy = this.props.student.get("studentSkills").get("currentLevel")["id"];
+
         var rows = [];
         var that = this;
         this.props.trophies.forEach(function(trophy) {
-           rows.push(<TrophyRow trophy = { trophy } key = { trophy.id } />);
+           rows.push(<TrophyRow trophy = { trophy } isCurrent = { trophy['id'] == currentTrophy } key = { trophy.id } />);
         });
 
 
