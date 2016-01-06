@@ -19,7 +19,7 @@
   border-width: 0 1px;
   height: 48px;
   line-height: 48px;
-  width: 150px;
+  width: 210px;
   text-align: center;
   font-size: 24px;
   font-weight: 200;
@@ -27,6 +27,7 @@
   font-variant: small-caps;
   color: white;
   cursor: pointer;
+  white-space:nowrap;
 }
 
 .menu a:hover {
@@ -70,14 +71,24 @@
 }
 
 .xaxis {
-    display: inline-block;
-    margin: 0 0 0 1px;
-    vertical-align: bottom;
-    position: relative;
-    width: 3%;
+
+    border-style: solid;
+
 }
 
-.chart:hover { /* change color of bars when hovering over them */
+.xaxis_label {
+    display: inline-block;
+    margin: 0 0 0 1px;
+    
+    position: relative;
+    width: 2%;
+    padding: 10px;
+    text-align: right;
+    white-space:nowrap;
+    border-style: dotted;
+}
+
+.chartBar:hover { /* change color of bars when hovering over them */
     z-index: 100;
     background: #fc0;
     box-shadow: 0 0 10px rgba(0, 0, 0, .25);

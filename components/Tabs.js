@@ -1,14 +1,10 @@
 var React = require('react');
-var Parse = require('parse');
-var Rollup = require('./Rollup');
-var Tabs = require('./Tabs');
+var Letters = require('./Letters');
+var Levels = require('./Levels');
+var Words = require('./Words');
 
 
-// Insert your app's keys here:
-Parse.initialize('e8iYEssqLGYjSWWf0tInczX7nMuHQInzD1Evw3w5', 'Xiz5Fh3XpwR2sPutkvqKCwwF3V7wKKQyKQk7lXC3');
-
-
-var App = React.createClass({
+var Tabs = React.createClass({
 
 
   getInitialState: function() {
@@ -20,8 +16,9 @@ var App = React.createClass({
   render: function() {
 
     var contents= [
-      <Rollup />,
-     
+      <Letters />,
+      <Words />,
+      <Levels />
     ];
 
     return (
@@ -30,13 +27,22 @@ var App = React.createClass({
           <a
             className={this.state.currentTab === 0 ? 'selected' : ''}
             onClick={this.selectTab.bind(this, 0)}>
-            Back to Overview 
+            Letters & Sounds
+          </a>
+           <a
+            className={this.state.currentTab === 1 ? 'selected' : ''}
+            onClick={this.selectTab.bind(this, 1)}>
+            Words
+          </a>
+           <a
+            className={this.state.currentTab === 2 ? 'selected' : ''}
+            onClick={this.selectTab.bind(this, 2)}>
+            Trophies
           </a>
         </div>
         
         <div className='mainPanel'>
           {contents[this.state.currentTab]}
-          <Tabs />
         </div>
       </div>
     );
@@ -49,7 +55,4 @@ var App = React.createClass({
 
 
 
-
-
-
-module.exports = App;
+module.exports = Tabs;
