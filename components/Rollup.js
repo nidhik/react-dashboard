@@ -1,5 +1,6 @@
 var React = require('react');
 var Parse = require('parse');
+var Tabs = require('./Tabs');
 
 var FancyGraph = React.createClass({
     render() {
@@ -86,19 +87,24 @@ var BarChart = React.createClass({
 
     handleBarSelected : function (student) {
         console.log(student + " selected");
+        this.props.studentSelected(student);
     }
 });
 
 var Rollup = React.createClass({
 
-    render(){
+    render() {
         return (
 
             <div>
-              <BarChart />
+              <BarChart studentSelected = { this.studentSelected }/>
             </div>
 
         );
+    },
+
+    studentSelected : function (student) {
+        this.props.showStudentDetail(student);
     }
 });
 
