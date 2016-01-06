@@ -28,13 +28,15 @@ var Rollup = React.createClass({
                     Show Details
                 </a>
 
-                <div className="chart">
-                  <div style={{width: 40}}>4</div>
-                  <div style={{width: 80}}>8</div>
-                  <div style={{width: 150}}>15</div>
-                  <div style={{width: 160}}>16</div>
-                  <div style={{width: 230}}>23</div>
-                  <div style={{width: 420}}>42</div>
+                <div>
+               
+                 <div><div className="chartLabel"><span>Michael</span></div><div className="chart" style={{width: 40}}>4</div></div>
+                 <div><span className="chartLabel">Allison</span><div className="chart" style={{width: 80}}>8</div></div>
+                 <div><span className="chartLabel">Erin</span><div className="chart" style={{width: 150}}>15</div></div>
+                 <div><span className="chartLabel">Nidhi</span><div className="chart" style={{width: 160}}>16</div></div>
+                 <div><span className="chartLabel">Joanne</span><div className="chart" style={{width: 230}}>23</div></div>
+                 <div><span className="chartLabel">Beth</span><div className="chart" style={{width: 420}}>42</div></div>
+
                 </div>
 
             
