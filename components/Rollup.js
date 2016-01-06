@@ -1,21 +1,47 @@
 var React = require('react');
 var Parse = require('parse');
 
-var simpleChartData = {
-  labels: ['Michael', 'Allison', 'Nidhi', 'Erin', 'Elizabeth', 'Keenan', 'Sandra'],
-  series: [
-    [5, 4, 3, 7, 5, 10, 3]
-  ]
-}
 
-var myOptions = {
-  seriesBarDistance: 10,
-  horizontalBars: true,
-  axisX: {
-    scaleMinSpace: 100
-  }
-}
 
+var BarLabel = React.createClass({
+    render () {
+        return (
+            <div className="chartLabel"><span>{this.props.name}</span></div>
+        );
+    }
+});
+
+var Bar = React.createClass({
+    
+    render () {
+        return (
+
+         <div>
+            <BarLabel name = {this.props.name} />
+            <div className="chart" style={{width: this.props.progress * 10}}> { this.props.progress }</div>
+         </div>
+
+        );
+    }
+
+});
+
+var BarChart = React.createClass({
+    render () {
+
+        return (
+            <div>
+                <Bar name= { "Michael" } progress = { 4 }  />
+                <Bar name= { "Allison" } progress = { 8 }  />
+                <Bar name= { "Erin" } progress = { 15 }  />
+                <Bar name= { "Nidhi" } progress = { 16 }  />
+                <Bar name= { "Joanne" } progress = { 23 }  />
+                <Bar name= { "Beth" } progress = { 42 }  />
+            </div>
+
+        );
+    }
+});
 
 var Rollup = React.createClass({
 
@@ -24,43 +50,13 @@ var Rollup = React.createClass({
         return (
 
             <div>
-                <a onClick={this.selectDetail.bind(this, 1)}>
-                    Show Details
-                </a>
-
-                <div>
-               
-                 <div><div className="chartLabel"><span>Michael</span></div><div className="chart" style={{width: 40}}>4</div></div>
-                 <div><span className="chartLabel">Allison</span><div className="chart" style={{width: 80}}>8</div></div>
-                 <div><span className="chartLabel">Erin</span><div className="chart" style={{width: 150}}>15</div></div>
-                 <div><span className="chartLabel">Nidhi</span><div className="chart" style={{width: 160}}>16</div></div>
-                 <div><span className="chartLabel">Joanne</span><div className="chart" style={{width: 230}}>23</div></div>
-                 <div><span className="chartLabel">Beth</span><div className="chart" style={{width: 420}}>42</div></div>
-
-                </div>
-
-            
-            <div>
-            Summary Letter Progress
-            <a onClick={this.selectDetail.bind(this, 2)}>
-                    Show Details
-            </a>
-            </div>
-            <div>
-            Summary Word Progress
-            <a onClick={this.selectDetail.bind(this, 3)}>
-                    Show Details
-                </a>
+              <BarChart />
             </div>
 
-            </div>
-
-            );
+        );
     },
 
-    selectDetail: function(tab) {
-        this.props.handleDetailSelected(tab);
-    }
+ 
 
 });
 

@@ -22,7 +22,7 @@ var App = React.createClass({
   render: function() {
 
     var contents= [
-      <Rollup handleDetailSelected = {this.selectTab} />,
+      <Rollup />,
       <Levels />,
       <Letters />,
       <Words />
