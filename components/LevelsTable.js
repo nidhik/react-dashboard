@@ -8,12 +8,13 @@ var TrophyRow = React.createClass({
             <tr style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
                 
                 <td align="center" valign="center">
-                <div className = "trophy">
-                <div dangerouslySetInnerHTML={this.createMarkup()}></div>
-                      <img src='/assets/student_trophy_2x.png' alt="trophy" style={{width: 130}} />
-                </div>
-                 <br />
-                 { this.props.index  + 1}. { this.props.details["trophyTitle"] } 
+                    <div className = "trophy">
+                         <img src='/assets/student_trophy_2x.png' alt="trophy" style={{width: 130, border:"dotted"}} />
+                        <div className = "trophyGraphic" style={{textAlign:'center'}} dangerouslySetInnerHTML={this.createMarkup()}></div>
+                        </div>
+
+                     <br />
+                     { this.props.index  + 1}. { this.props.details["trophyTitle"] } 
                 </td>
 
                
@@ -28,16 +29,6 @@ var TrophyRow = React.createClass({
         return {__html: this.props.trophy["customTitle"] }; 
     }
 });
-
-
- // <td>
-          
- //                <div className = "trophy" dangerouslySetInnerHTML={this.createMarkup()} >
- //                </div>
-
- //                <br />
- //                { this.props.index  + 1}. { this.props.details["trophyTitle"] } 
- //                </td> 
 
 var LevelsTable = React.createClass({
     render: function() {
