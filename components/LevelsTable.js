@@ -1,5 +1,6 @@
 var React = require('react');
 var Parse = require('parse');
+var Circle = require('./Circle');
 
 var TrophyRow = React.createClass({
     render () {
@@ -27,7 +28,7 @@ var TrophyRow = React.createClass({
                 </td>
 
                 <td>
-                    <div style= {{ padding : 30 }}><div className="circle"></div></div>
+                   <Circle />
                 </td>
              
             </tr>
