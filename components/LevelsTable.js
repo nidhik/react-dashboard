@@ -7,14 +7,16 @@ var TrophyRow = React.createClass({
         return (
             <tr style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
                 
-                <td align="center" valign="center">
+                <td>
+                    
                     <div className = "trophy">
-                         <img src='/assets/student_trophy_2x.png' alt="trophy" style={{width: 130, border:"dotted"}} />
-                        <div className = "trophyGraphic" style={{textAlign:'center'}} dangerouslySetInnerHTML={this.createMarkup()}></div>
-                        </div>
+                        <img src='/assets/student_trophy_2x.png' alt="trophy"/>
+                        <div className = "trophyGraphic" dangerouslySetInnerHTML={this.createMarkup()}></div>
+                        
+                    </div>
 
-                     <br />
-                     { this.props.index  + 1}. { this.props.details["trophyTitle"] } 
+        
+                     <div style= {{ textAlign: 'center' }} > { this.props.index  + 1}. { this.props.details["trophyTitle"] }</div>
                 </td>
 
                
