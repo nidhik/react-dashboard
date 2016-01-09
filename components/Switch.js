@@ -20,7 +20,4 @@ var Switch = React.createClass({
 
 
 
-
-
-
 module.exports = Switch;

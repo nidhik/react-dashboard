@@ -27,7 +27,7 @@ var Levels = React.createClass({
             return (
 
             <div>
-            <LevelsTable student = { this.data.students[0] } trophies = { this.data.trophies.get("order") } />
+            <LevelsTable student = { this.data.students[0] } trophies = { this.data.trophies } />
             </div>
 
             );

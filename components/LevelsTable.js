@@ -6,12 +6,21 @@ var TrophyRow = React.createClass({
     
         return (
             <tr style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
-                <td>{ this.props.index }.
-                </td> 
-                <td/> 
-                <td dangerouslySetInnerHTML={this.createMarkup()} />
+                
+                <td align="center" valign="center">
+                <div className = "trophy">
+                <div dangerouslySetInnerHTML={this.createMarkup()}></div>
+                      <img src='/assets/student_trophy_2x.png' alt="trophy" style={{width: 130}} />
+                </div>
+                 <br />
+                 { this.props.index  + 1}. { this.props.details["trophyTitle"] } 
+                </td>
 
+               
+              
+             
             </tr>
+
         );
     },
 
@@ -21,7 +30,14 @@ var TrophyRow = React.createClass({
 });
 
 
+ // <td>
+          
+ //                <div className = "trophy" dangerouslySetInnerHTML={this.createMarkup()} >
+ //                </div>
 
+ //                <br />
+ //                { this.props.index  + 1}. { this.props.details["trophyTitle"] } 
+ //                </td> 
 
 var LevelsTable = React.createClass({
     render: function() {
@@ -30,8 +46,10 @@ var LevelsTable = React.createClass({
 
         var rows = [];
         var that = this;
-        this.props.trophies.forEach(function(trophy, index) {
-           rows.push(<TrophyRow trophy = { trophy } isCurrent = { trophy['id'] == currentTrophy } index = { index } key = { trophy.id } />);
+        var trophyDetails = this.props.trophies.get("trophyDetails");
+
+        this.props.trophies.get("order").forEach(function(trophy, index) {
+           rows.push(<TrophyRow trophy = { trophy } details = { trophyDetails[index] } isCurrent = { trophy['id'] == currentTrophy } index = { index } key = { trophy.id } />);
         });
 
 

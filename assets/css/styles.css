@@ -46,6 +46,12 @@
   color: white;
 }
 
+.trophy {
+    margin: 0 auto; 
+    width: 130px;
+}
+ 
+
 /* simple css chart */
 
 .chartBar {

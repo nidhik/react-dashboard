@@ -129,7 +129,7 @@ var Words = React.createClass({
 
             );
         
-    },
+    }
     
 
 });
