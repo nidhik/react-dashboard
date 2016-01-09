@@ -5,7 +5,7 @@ var TrophyRow = React.createClass({
     render () {
     
         return (
-            <tr style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
+            <tr className= "trophyRow" style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
                 
                 <td>
                     
@@ -20,7 +20,15 @@ var TrophyRow = React.createClass({
                 </td>
 
                
-              
+                <td> 
+                    <div style= {{ textAlign: 'center', padding : 30 }} >
+                    { this.props.details.trophyWords.join(", ") }
+                    </div>
+                </td>
+
+                <td>
+                    <div style= {{ padding : 30 }}><div className="circle"></div></div>
+                </td>
              
             </tr>
 
@@ -47,7 +55,7 @@ var LevelsTable = React.createClass({
 
 
         return (
-            <div>
+            <div style= {{ padding : 30 }}>
             <table>
                 <tbody>{ rows }</tbody>
             </table>

@@ -46,6 +46,10 @@
   color: white;
 }
 
+.trophyRow td {
+    border: solid;
+}
+
 .trophy {
 
     text-align: center;
@@ -72,6 +76,13 @@
 .trophyGraphic div {
     display:inline-block;
     padding: 5px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: green;
 }
  
 
