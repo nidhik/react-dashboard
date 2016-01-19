@@ -50,6 +50,10 @@
     border: solid;
 }
 
+.proficiencyTable td {
+    border: solid;
+}
+
 .trophy {
 
     text-align: center;
@@ -78,13 +82,26 @@
     padding: 5px;
 }
 
+/* Indicators */
+
+.needs-help {
+    background: orange;
+}
+
+.good {
+    background: green;
+}
+
+.not-available {
+    background: gray;
+}
+
 .circle {
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    background: green;
+    
 }
- 
 
 /* simple css chart */
 

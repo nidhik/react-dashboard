@@ -3,6 +3,7 @@ var Parse = require('parse');
 var ParseReact = require('parse-react');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 var Switch = require('./Switch');
+var Circle = require('./Circle');
 
 
 var WordRow = React.createClass({
@@ -10,7 +11,11 @@ var WordRow = React.createClass({
     
         return (
             <tr> 
-                <td>{ this.props.word.get("chars") }</td>
+                <td>
+                    <div style= {{ textAlign: 'center', padding : 30 }}>
+                        { this.props.word.get("chars") }
+                    </div>
+                </td>
                 <WordScore score = { this.props.score }  />
             </tr>
         );
@@ -21,7 +26,11 @@ var WordScore = React.createClass({
     render: function() {
     
         return (
-            <td>{ this.props.score ? this.props.score.get('averageScore') : "n/a" }</td>
+            <td>
+                <div style= {{ textAlign: 'center', padding : 30 }}>
+                    { this.props.score ? this.props.score.get('averageScore') : <Circle status = { 0 } /> }
+                </div>
+            </td>
         );
     }
 });
@@ -38,7 +47,7 @@ var WordTable = React.createClass({
 
         return (
             <div>
-            <table>
+            <table className = "proficiencyTable">
                 <tbody>{ rows }</tbody>
             </table>
             </div>

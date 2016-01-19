@@ -1,12 +1,20 @@
 var React = require('react');
 var Parse = require('parse');
 var Circle = require('./Circle');
+var _ = require('underscore');
+var ReactDOM = require('react-dom');
 
 var TrophyRow = React.createClass({
+
+   
     render () {
+
+        if (this.props.isCurrent) {
+        console.log("rendering current");
+    }
     
         return (
-            <tr className= "trophyRow" style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
+            <tr className="trophyRow" style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
                 
                 <td>
                     
@@ -28,7 +36,7 @@ var TrophyRow = React.createClass({
                 </td>
 
                 <td>
-                   <Circle />
+                   <Circle status = {this.props.isComplete ? 2 : 0 }/>
                 </td>
              
             </tr>
@@ -42,16 +50,33 @@ var TrophyRow = React.createClass({
 });
 
 var LevelsTable = React.createClass({
-    render: function() {
 
-        var currentTrophy = this.props.student.get("studentSkills").get("currentLevel")["id"];
+    componentDidMount: function() {
+         var target = ReactDOM.findDOMNode(this.refs.currentTrophy);
+         console.log("Ref: " + target);
+         target.scrollIntoView({block: "start"});
+
+    },
+    
+    render: function() {
 
         var rows = [];
         var that = this;
         var trophyDetails = this.props.trophies.get("trophyDetails");
 
+        var currentTrophy = this.props.student.get("studentSkills").get("currentLevel");
+        var currentTrophyIndex = _.indexOf(_.pluck(this.props.trophies.get("order"), 'id'), currentTrophy["id"]);
+
         this.props.trophies.get("order").forEach(function(trophy, index) {
-           rows.push(<TrophyRow trophy = { trophy } details = { trophyDetails[index] } isCurrent = { trophy['id'] == currentTrophy } index = { index } key = { trophy.id } />);
+            
+            rows.push(<TrophyRow 
+                ref={ index == currentTrophyIndex  ? "currentTrophy" : undefined } 
+                trophy = { trophy } 
+                details = { trophyDetails[index] } 
+                isCurrent = { index == currentTrophyIndex }  
+                isComplete = { index < currentTrophyIndex } 
+                index = { index } 
+                key = { trophy.id } />);
         });
 
 
