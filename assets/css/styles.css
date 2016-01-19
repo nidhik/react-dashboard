@@ -1,50 +1,37 @@
+
 .menu {
-/*  font-size: 0;
-  text-align: center;
-  margin: 40px 0;*/
-
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.2em;
-    margin: 0;
-    padding: 1em 0 1em 0;
-    text-align: center;
-    background-color: #4b384c;
-}
-.menu a {
-  display: inline-block;
-  border-style: solid;
-  border-color: #c4e0f1;
-  border-width: 0 1px;
-  height: 48px;
-  line-height: 48px;
-  width: 210px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 200;
-  letter-spacing: 0.1em;
-  font-variant: small-caps;
-  color: white;
-  cursor: pointer;
-  white-space:nowrap;
+    position:relative; 
+    z-index:2;
+    top:1px;
+    display:table;
+    border-left:1px solid #f5ab36;
 }
 
 .menu a:hover {
   background: #c4e0f1;
 }
-.menu a:first-child {
-  border-left-width: 2px;
+
+
+.menu a {
+    float:left;
+    background:#ffd89b;
+    color:#222;
+    display:block;
+    padding:6px 15px;
+    text-decoration:none;
+    border-right:1px solid #f5ab36;
+    border-top:1px solid #f5ab36;
+    border-right:1px solid #f5ab36; 
+    margin:0;
 }
-.menu a:last-child {
-  border-right-width: 2px;
+
+.menu a.selected  {
+    border-bottom:1px 
+    solid #fff;
+    color:#344385;
+    background:#fff;
 }
-.menu a.selected {
-  background: #7999b9;
-  border-color: #7999b9;
-  border-bottom: 3px solid #475869;
-  color: white;
-}
+
 
 .trophyRow td {
     border: solid;
