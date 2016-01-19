@@ -24,11 +24,16 @@ var WordRow = React.createClass({
 
 var WordScore = React.createClass({
     render: function() {
-    
+        
+        var status = 0;
+        if (this.props.score) {
+            status = this.props.score.get('averageScore') >= 0.7 ? 1 : 2
+        }
+
         return (
             <td>
                 <div style= {{ textAlign: 'center', padding : 30 }}>
-                    { this.props.score ? this.props.score.get('averageScore') : <Circle status = { 0 } /> }
+                    <Circle status = { status } /> 
                 </div>
             </td>
         );
@@ -65,8 +70,8 @@ var ProficencyComponent = React.createClass({
 
         if (!this.state.appOrder) {
             wordOrder.sort(function(w0, w1) { 
-                var a = w0.get('chars');
-                var b = w1.get("chars");
+                var a = w0.get('chars').toLowerCase();
+                var b = w1.get("chars").toLowerCase();
 
                 if (a > b) {
                     return 1;

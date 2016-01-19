@@ -45,8 +45,7 @@ var Login = React.createClass({
     if (this.data.user) {
       return (
         <div>
-          <a className='logOut' onClick={this.logOut}>Log Out</a>
-          <App />
+          <App logOutHandler = {this.logOut} />
         </div>
       );
     }

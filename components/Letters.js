@@ -10,8 +10,6 @@ var Letters = React.createClass({
 
             <div>
 
-            <h1>Detailed Letter Sounds Progress</h1>
-
             </div>
 
             );

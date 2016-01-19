@@ -23,7 +23,7 @@ var Tabs = React.createClass({
 
     return (
       <div>
-        <div className='menu'>
+        <div className='tabs'>
           <a
             className={this.state.currentTab === 0 ? 'selected' : ''}
             onClick={this.selectTab.bind(this, 0)}>
@@ -41,7 +41,7 @@ var Tabs = React.createClass({
           </a>
         </div>
         
-        <div className='mainPanel'>
+        <div className='contents'>
           {contents[this.state.currentTab]}
         </div>
       </div>

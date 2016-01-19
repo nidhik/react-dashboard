@@ -1,5 +1,23 @@
 
 .menu {
+    position: fixed;
+    background: orange;
+    height: 50px;
+    width: 100%;
+}
+
+.mainPanel {
+    position: relative;
+    top: 200px;
+}
+
+.contents {
+    height: 1000px;
+    overflow: scroll;
+}
+
+
+.tabs {
     position:relative; 
     z-index:2;
     top:1px;
@@ -7,12 +25,12 @@
     border-left:1px solid #f5ab36;
 }
 
-.menu a:hover {
+.tabs a:hover {
   background: #c4e0f1;
 }
 
 
-.menu a {
+.tabs a {
     float:left;
     background:#ffd89b;
     color:#222;
@@ -25,12 +43,13 @@
     margin:0;
 }
 
-.menu a.selected  {
+.tabs a.selected  {
     border-bottom:1px 
     solid #fff;
     color:#344385;
     background:#fff;
 }
+
 
 
 .trophyRow td {

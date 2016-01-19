@@ -22,15 +22,18 @@ var App = React.createClass({
      if (this.state.showDetail) {
         return (
           <div>
-        <a
-            className={ this.state.currentTab === 0 ? 'selected' : ''}
-            onClick={this.selectTab.bind(this, 0)}>
-            Back to Overview 
-          </a>
+            
+            <div className= "menu">
 
-        <div className='mainPanel'>
-        <Tabs />
-        </div>
+            <a onClick={ this.props.logOutHandler }>Log Out</a>
+            
+            <a className={ this.state.currentTab === 0 ? 'selected' : ''}
+            onClick={this.selectTab.bind(this, 0)}>
+            Back to Overview </a>
+
+            </div>
+
+            <div className='mainPanel'><Tabs /></div>
 
           </div>
         );
@@ -39,6 +42,7 @@ var App = React.createClass({
     return (
       <div>
             <div className='menu'>
+             <a onClick={ this.props.logOutHandler }>Log Out</a>
             </div>
             
             <div className='mainPanel'>
