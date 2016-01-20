@@ -8,10 +8,6 @@ var TrophyRow = React.createClass({
 
    
     render () {
-
-        if (this.props.isCurrent) {
-        console.log("rendering current");
-    }
     
         return (
             <tr className="trophyRow" style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
@@ -51,13 +47,6 @@ var TrophyRow = React.createClass({
 
 var LevelsTable = React.createClass({
 
-    componentDidMount: function() {
-         var target = ReactDOM.findDOMNode(this.refs.currentTrophy);
-         console.log("Ref: " + target);
-         target.scrollIntoView({block: "start"});
-
-    },
-    
     render: function() {
 
         var rows = [];

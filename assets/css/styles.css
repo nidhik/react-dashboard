@@ -1,13 +1,5 @@
-
-/* Generic pane rules */
-body { margin:  }
-.row, .col { overflow: hidden; position: absolute; }
-.row { left: ; right: ; }
-.col { top: ; bottom: ; }
-.scroll-x { overflow-x: auto; }
-.scroll-y { overflow-y: auto; }
-
 .menu {
+    position: absolute;
     background: orange;
     height: 50px;
     width: 100%;
@@ -15,29 +7,31 @@ body { margin:  }
 
 .mainPanel {
     position: relative;
+    top: 100px;
+    margin: 0 auto;
     max-width: 1300px;
     height: 1000px;
-    top: 50px;
-    margin: 0 auto; 
+    overflow: hidden;
 
-    border: solid ;
+    border: solid green;
 }
 
 .contents {
     position: absolute;
+    top: 40px;
     height: 100%;
     width: 100%;
     overflow: scroll;
-    border: solid green;
+    border: solid blue;
 }
 
 
 .tabs {
     position:absolute; 
     z-index:2;
-    top:1px;
     display:table;
     border-left:1px solid #f5ab36;
+    height: 40px;
 } 
 
 .tabs a:hover {
