@@ -5,6 +5,18 @@
     width: 100%;
 }
 
+.menu a {
+     padding:6px 50px;
+}
+
+.logout {
+    float: right;
+}
+
+.back {
+    float: left;
+}
+
 .mainPanel {
     position: relative;
     top: 100px;

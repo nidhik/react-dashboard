@@ -24,12 +24,12 @@ var App = React.createClass({
           <div>
             
             <div className= "menu">
-
-            <a onClick={ this.props.logOutHandler }>Log Out</a>
             
-            <a className={ this.state.currentTab === 0 ? 'selected' : ''}
+            <a className={ this.state.currentTab === 0 ? 'selected back' : 'back'}
             onClick={this.selectTab.bind(this, 0)}>
             Back to Overview </a>
+
+            <a className = "logout" onClick={ this.props.logOutHandler }>Log Out</a>
 
             </div>
 
@@ -42,7 +42,7 @@ var App = React.createClass({
     return (
       <div>
             <div className='menu'>
-             <a onClick={ this.props.logOutHandler }>Log Out</a>
+             <a className = "logout" onClick={ this.props.logOutHandler }>Log Out</a>
             </div>
             
             <div className='mainPanel'>
