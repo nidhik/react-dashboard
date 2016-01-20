@@ -37,13 +37,11 @@
     top: 40px;
     height: 100%;
     width: 100%;
-/*overflow: scroll;*/
 }
 
 .scroll-y {
     height: 100%;
     overflow: scroll;
-    border: dashed blue;
 }
 
 .wrapper {
@@ -101,7 +99,7 @@
 }
 
 .trophy img {
-     display: block;
+    display: block;
     margin: 0 auto;
 }
 

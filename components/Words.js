@@ -92,7 +92,7 @@ var ProficencyComponent = React.createClass({
             <div className="wrapper">
 
             <Switch toggle = { this.toggle } />
-            <div className="scroll-y "><WordTable words = { wordOrder } scores = { this.props.scores } /></div>
+            <div className="scroll-y " style = {{position:'relative', top:30}}><WordTable words = { wordOrder } scores = { this.props.scores } /></div>
 
             </div>
 

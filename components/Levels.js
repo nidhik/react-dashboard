@@ -26,7 +26,7 @@ var Levels = React.createClass({
 
             return (
 
-            <div className = "scroll-y">
+            <div className = "wrapper" style = {{position:'relative', top:60}}>
             <LevelsTable student = { this.data.students[0] } trophies = { this.data.trophies } />
             </div>
 

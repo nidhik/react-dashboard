@@ -47,6 +47,21 @@ var TrophyRow = React.createClass({
 
 var LevelsTable = React.createClass({
 
+     handleScroll() {
+        var me = ReactDOM.findDOMNode(this);
+        var row = ReactDOM.findDOMNode(this.refs.currentTrophy);
+        console.log("scrolled: " + me.scrollTop);
+        console.log("current trophy row offset: " + row.offsetTop);
+    },
+
+    componentDidMount() {
+        var me = ReactDOM.findDOMNode(this);
+        var row = ReactDOM.findDOMNode(this.refs.currentTrophy);
+        console.log("initial  " + me.scrollTop);
+        console.log(" initial current trophy row offset: " + row.offsetTop);
+        me.scrollTop = row.offsetTop;
+    },
+
     render: function() {
 
         var rows = [];
@@ -70,7 +85,7 @@ var LevelsTable = React.createClass({
 
 
         return (
-            <div style= {{ padding : 30 }}>
+            <div className="scroll-y" onScroll= {this.handleScroll}>
             <table>
                 <tbody>{ rows }</tbody>
             </table>
