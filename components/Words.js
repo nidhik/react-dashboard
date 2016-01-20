@@ -6,6 +6,21 @@ var Switch = require('./Switch');
 var Circle = require('./Circle');
 
 
+var sortAlphabetical = function(w0, w1) { 
+    var a = w0.get('chars').toLowerCase();
+    var b = w1.get("chars").toLowerCase();
+
+    if (a > b) {
+        return 1;
+    }
+
+    if (a < b) {
+        return -1;
+    }
+
+    return 0;
+}
+
 var WordRow = React.createClass({
     render: function() {
     
@@ -69,27 +84,12 @@ var ProficencyComponent = React.createClass({
         var wordOrder = this.props.words.get('order').slice();
 
         if (!this.state.appOrder) {
-            wordOrder.sort(function(w0, w1) { 
-                var a = w0.get('chars').toLowerCase();
-                var b = w1.get("chars").toLowerCase();
-
-                if (a > b) {
-                    return 1;
-                }
-
-                if (a < b) {
-                    return -1;
-                }
-
-                return 0;
-            });
-    
+            wordOrder.sort(sortAlphabetical);
         }
+
         return (
 
             <div>
-
-            <h2> Number of words: { this.props.words.get('order').length } </h2> 
 
             <Switch toggle = { this.toggle } />
             <WordTable words = { wordOrder } scores = { this.props.scores } />

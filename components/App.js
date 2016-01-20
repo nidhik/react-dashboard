@@ -33,7 +33,7 @@ var App = React.createClass({
             <a className = "logout" onClick={ this.props.logOutHandler }>Log Out</a>
 
             </div>
-            <StudentHeader />
+            <StudentHeader student = { this.state.student } />
             <div className='mainPanel'><Tabs /></div>
 
           </div>

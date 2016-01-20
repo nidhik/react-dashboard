@@ -72,12 +72,12 @@ var BarChart = React.createClass({
 
         return (
             <div >
-                <Bar name= { "Michael" } progress = { 4 }  handleBarSelected = { this.handleBarSelected.bind(this, "Michael") }/>
-                <Bar name= { "Allison" } progress = { 8 }  handleBarSelected = { this.handleBarSelected.bind(this, "Allison") }/>
-                <Bar name= { "Erin" } progress = { 15 }  handleBarSelected = { this.handleBarSelected.bind(this, "Erin") }/>
-                <Bar name= { "Nidhi" } progress = { 16 }  handleBarSelected = { this.handleBarSelected.bind(this, "Nidhi") }/>
-                <Bar name= { "Joanne" } progress = { 23 }  handleBarSelected = { this.handleBarSelected.bind(this, "Joanne") }/>
-                <Bar name= { "Beth" } progress = { 42 }  handleBarSelected = { this.handleBarSelected.bind(this, "Beth") }/>
+                <Bar name= { "Michael Ellison" } progress = { 4 }  handleBarSelected = { this.handleBarSelected.bind(this, "Michael Ellison") }/>
+                <Bar name= { "Allison Wonderland" } progress = { 8 }  handleBarSelected = { this.handleBarSelected.bind(this, "Allison Wonderland") }/>
+                <Bar name= { "Erin Parker" } progress = { 15 }  handleBarSelected = { this.handleBarSelected.bind(this, "Erin Parker") }/>
+                <Bar name= { "Nidhi Kulkarni" } progress = { 16 }  handleBarSelected = { this.handleBarSelected.bind(this, "Nidhi Kulkarni") }/>
+                <Bar name= { "Joanne Li" } progress = { 23 }  handleBarSelected = { this.handleBarSelected.bind(this, "Joanne Li") }/>
+                <Bar name= { "Beth Kendrick" } progress = { 42 }  handleBarSelected = { this.handleBarSelected.bind(this, "Beth Kendrick") }/>
 
                 <XAxis />
             </div>
