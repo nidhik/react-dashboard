@@ -8,24 +8,30 @@
 
 .mainPanel {
     position: relative;
-    max-width: 1000px;
+    max-width: 1300px;
+    height: 1000px;
+    top: 50px;
     margin: 0 auto; 
-    top: 200px;
+
+    border: solid ;
 }
 
 .contents {
-    height: 1000px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
     overflow: scroll;
+    border: solid green;
 }
 
 
 .tabs {
-    position:relative; 
+    position:absolute; 
     z-index:2;
     top:1px;
     display:table;
     border-left:1px solid #f5ab36;
-}
+} 
 
 .tabs a:hover {
   background: #c4e0f1;
