@@ -5,9 +5,9 @@ var Circle = React.createClass({
     render () {
 
         var statuses = [
-          "circle not-available",
-          "circle needs-help",
-          "circle good"
+          "circle not-available indicator",
+          "circle needs-help indicator",
+          "circle good indicator"
         ]
     
         return (

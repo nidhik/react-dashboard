@@ -2,6 +2,7 @@ var React = require('react');
 var Parse = require('parse');
 var Rollup = require('./Rollup');
 var Tabs = require('./Tabs');
+var StudentHeader = require('./StudentHeader');
 
 // Insert your app's keys here:
 Parse.initialize('e8iYEssqLGYjSWWf0tInczX7nMuHQInzD1Evw3w5', 'Xiz5Fh3XpwR2sPutkvqKCwwF3V7wKKQyKQk7lXC3');
@@ -32,7 +33,7 @@ var App = React.createClass({
             <a className = "logout" onClick={ this.props.logOutHandler }>Log Out</a>
 
             </div>
-
+            <StudentHeader />
             <div className='mainPanel'><Tabs /></div>
 
           </div>

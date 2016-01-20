@@ -1,7 +1,7 @@
 .menu {
     position: absolute;
     background: orange;
-    height: 50px;
+    height: 70px;
     width: 100%;
 }
 
@@ -17,9 +17,13 @@
     float: left;
 }
 
+.center-x {
+    margin: 0 auto;
+}
+
 .mainPanel {
     position: relative;
-    top: 100px;
+    top: 120px;
     margin: 0 auto;
     max-width: 1300px;
     height: 1000px;
@@ -125,9 +129,13 @@
 
 .circle {
     border-radius: 50%;
+
+    
+}
+
+.indicator {
     width: 30px;
     height: 30px;
-    
 }
 
 /* simple css chart */
