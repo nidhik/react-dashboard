@@ -23,7 +23,7 @@ var App = React.createClass({
         return (
           <div>
             
-            <div className= "menu">
+            <div className= "menu row">
 
             <a onClick={ this.props.logOutHandler }>Log Out</a>
             
@@ -33,7 +33,7 @@ var App = React.createClass({
 
             </div>
 
-            <div className='mainPanel'><Tabs /></div>
+            <div className='mainPanel body row scroll-y'><Tabs /></div>
 
           </div>
         );
