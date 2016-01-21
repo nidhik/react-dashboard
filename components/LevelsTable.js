@@ -69,7 +69,9 @@ var LevelsTable = React.createClass({
         var trophyDetails = this.props.trophies.get("trophyDetails");
 
         var currentTrophy = this.props.student.get("studentSkills").get("currentLevel");
-        var currentTrophyIndex = _.indexOf(_.pluck(this.props.trophies.get("order"), 'id'), currentTrophy["id"]);
+        console.log(currentTrophy);
+
+        var currentTrophyIndex = currentTrophy ? _.indexOf(_.pluck(this.props.trophies.get("order"), 'id'), currentTrophy["id"]) : 0;
 
         this.props.trophies.get("order").forEach(function(trophy, index) {
             
