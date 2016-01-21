@@ -1,6 +1,8 @@
 var React = require('react');
 var Parse = require('parse');
 var Tabs = require('./Tabs');
+var _ = require('underscore');
+var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 
 var FancyGraph = React.createClass({
     render() {
@@ -70,15 +72,15 @@ var XAxis = React.createClass({
 var BarChart = React.createClass({
     render () {
 
+        var that = this;
+
+        var bars = _.map(this.props.students, function(student, i) {
+            var name = student.get('nickname');
+            return <Bar name= { name } progress = { i * 3}  handleBarSelected = { that.handleBarSelected.bind(that, name) } key = {student.id}/>
+        });
         return (
             <div >
-                <Bar name= { "Michael Ellison" } progress = { 4 }  handleBarSelected = { this.handleBarSelected.bind(this, "Michael Ellison") }/>
-                <Bar name= { "Allison Wonderland" } progress = { 8 }  handleBarSelected = { this.handleBarSelected.bind(this, "Allison Wonderland") }/>
-                <Bar name= { "Erin Parker" } progress = { 15 }  handleBarSelected = { this.handleBarSelected.bind(this, "Erin Parker") }/>
-                <Bar name= { "Nidhi Kulkarni" } progress = { 16 }  handleBarSelected = { this.handleBarSelected.bind(this, "Nidhi Kulkarni") }/>
-                <Bar name= { "Joanne Li" } progress = { 23 }  handleBarSelected = { this.handleBarSelected.bind(this, "Joanne Li") }/>
-                <Bar name= { "Beth Kendrick" } progress = { 42 }  handleBarSelected = { this.handleBarSelected.bind(this, "Beth Kendrick") }/>
-
+                { bars }
                 <XAxis />
             </div>
 
@@ -88,16 +90,24 @@ var BarChart = React.createClass({
     handleBarSelected : function (student) {
         console.log(student + " selected");
         this.props.studentSelected(student);
+
+
+                // <Bar name= { "Michael Ellison" } progress = { 4 }  handleBarSelected = { this.handleBarSelected.bind(this, "Michael Ellison") }/>
+                // <Bar name= { "Allison Wonderland" } progress = { 8 }  handleBarSelected = { this.handleBarSelected.bind(this, "Allison Wonderland") }/>
+                // <Bar name= { "Erin Parker" } progress = { 15 }  handleBarSelected = { this.handleBarSelected.bind(this, "Erin Parker") }/>
+                // <Bar name= { "Nidhi Kulkarni" } progress = { 16 }  handleBarSelected = { this.handleBarSelected.bind(this, "Nidhi Kulkarni") }/>
+                // <Bar name= { "Joanne Li" } progress = { 23 }  handleBarSelected = { this.handleBarSelected.bind(this, "Joanne Li") }/>
+                // <Bar name= { "Beth Kendrick" } progress = { 42 }  handleBarSelected = { this.handleBarSelected.bind(this, "Beth Kendrick") }/>
     }
 });
 
-var Rollup = React.createClass({
+var Overview = React.createClass({
 
     render() {
         return (
 
             <div>
-              <BarChart studentSelected = { this.studentSelected }/>
+              <BarChart students = { this.props.students } studentSelected = { this.studentSelected }/>
             </div>
 
         );
@@ -107,6 +117,46 @@ var Rollup = React.createClass({
         this.props.showStudentDetail(student);
     }
 });
+
+var Rollup = React.createClass({
+
+    mixins: [ ParseCloudCodeMixin],
+    loadData: function(props, state) {
+    return {
+          students: {
+            name: "getStudents",
+            params: {}
+          },
+          trophies: {
+            name: "getTrophies",
+            params: {}
+          }
+      }
+    },
+
+    render () {
+        if (this.data.students && this.data.trophies) {
+
+            return (
+
+            <div className="wrapper">
+            <Overview students = { this.data.students } trophies = { this.data.trophies } showStudentDetail = { this.props.showStudentDetail } />
+            </div>
+
+            );
+        }
+        
+        return (
+
+            <div>
+            <span>Loading ...</span> 
+            </div>
+
+            );
+        
+    }
+});
+
 
 
 
