@@ -4,6 +4,7 @@ var ParseReact = require('parse-react');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 var Switch = require('./Switch');
 var Circle = require('./Circle');
+var _ = require("underscore");
 
 
 var sortAlphabetical = function(w0, w1) { 
@@ -61,7 +62,7 @@ var WordTable = React.createClass({
         var rows = [];
         var that = this;
         this.props.words.forEach(function(word) {
-           rows.push(<WordRow word = { word } score = { that.props.scores[ word.id ] } key = { word.id } />);
+            rows.push(<WordRow word = { word } score = { that.props.scores[ word.id ] } key = { word.id } />);
         });
 
 
@@ -81,7 +82,12 @@ var ProficencyComponent = React.createClass({
     },
 
     render () {
-        var wordOrder = this.props.words.get('order').slice();
+        var wordAppOrder = this.props.words.get('order').slice();
+        var wordOrder = [];
+
+        _.each(wordAppOrder, function(w) {
+            if (w) wordOrder.push(w);
+        });
 
         if (!this.state.appOrder) {
             wordOrder.sort(sortAlphabetical);
@@ -112,7 +118,8 @@ var Words = React.createClass({
           scores: {
             name: "getScores",
             params: {
-                studentId: "WnHpzJedMu"
+                studentId: "WnHpzJedMu",
+                scoreType: "words"
             }
           },
           words: {
