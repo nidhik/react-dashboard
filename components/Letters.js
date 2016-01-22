@@ -4,6 +4,7 @@ var ParseReact = require('parse-react');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 var Switch = require('./Switch');
 var Circle = require('./Circle');
+var Indicator = require('./Indicator');
 var _ = require("underscore");
 
 
@@ -38,6 +39,7 @@ var PhonRow = React.createClass({
     }
 });
 
+
 var PhonScore = React.createClass({
     render: function() {
         
@@ -48,10 +50,11 @@ var PhonScore = React.createClass({
 
         return (
             <td>
-                <div style= {{ textAlign: 'center', padding : 30 }}>
-                    <Circle status = { status } /> 
+                <div style= {{ padding : 30 }}>
+                    <Indicator status = { status } /> 
                 </div>
             </td>
+
         );
     }
 });

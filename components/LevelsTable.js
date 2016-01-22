@@ -60,7 +60,7 @@ var TrophyRow = React.createClass({
                 </td>
 
                 <td>
-                   <Circle status = {this.props.isComplete ? 2 : 0 }/>
+                   <div style = {{padding: 30}}><Circle status = {this.props.isComplete ? 2 : 0 }/></div>
                 </td>
              
             </tr>

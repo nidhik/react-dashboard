@@ -12,7 +12,8 @@ var Circle = React.createClass({
     
         return (
     
-            <div style= {{ padding : 30 }}> <div className={ statuses[this.props.status] } />
+            <div> 
+                <div className={ statuses[this.props.status] } />
             </div>
             
         );
