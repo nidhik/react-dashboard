@@ -85,7 +85,7 @@ var ProficencyComponent = React.createClass({
     },
 
     render () {
-        var phonAppOrder = this.props.phonemes.get('order').slice();
+        var phonAppOrder = this.props.phonemes.slice();
         var phonOrder = [];
 
         _.each(phonAppOrder, function(p) {

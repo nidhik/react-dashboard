@@ -83,7 +83,7 @@ var ProficencyComponent = React.createClass({
     },
 
     render () {
-        var wordAppOrder = this.props.words.get('order').slice();
+        var wordAppOrder = this.props.words.slice();
         var wordOrder = [];
 
         _.each(wordAppOrder, function(w) {
