@@ -8,7 +8,7 @@ var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 
 
 
-var Overview = React.createClass({
+var LevelsOverview = React.createClass({
 
     render() {
         return (
@@ -24,6 +24,25 @@ var Overview = React.createClass({
         this.props.showStudentDetail(student);
     }
 });
+
+var LetterWordOverview = React.createClass({
+
+    render() {
+        return (
+
+            <div>
+              <StudentSummary student = { this.props.students[0] } />
+            </div>
+
+        );
+    },
+
+    studentSelected : function (student) {
+        this.props.showStudentDetail(student);
+    }
+});
+
+
 
 var Rollup = React.createClass({
 
@@ -48,10 +67,8 @@ var Rollup = React.createClass({
             return (
 
             <div className="wrapper">
-            <Overview students = { this.data.students } trophies = { this.data.trophyAppOrder.trophies } sections = { this.data.trophyAppOrder.sections } showStudentDetail = { this.props.showStudentDetail } />
-
-            <StudentSummary student = { this.data.students[0] } />
-
+            <LevelsOverview students = { this.data.students } trophies = { this.data.trophyAppOrder.trophies } sections = { this.data.trophyAppOrder.sections } showStudentDetail = { this.props.showStudentDetail } />
+            <LetterWordOverview students = { this.data.students }/>
             </div>
 
             );
