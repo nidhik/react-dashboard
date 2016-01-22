@@ -62,6 +62,7 @@ var XAxis = React.createClass({
             );
         }
 });
+
 var BarChart = React.createClass({
     render () {
 

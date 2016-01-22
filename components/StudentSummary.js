@@ -12,7 +12,7 @@ var Summary = React.createClass({
 
         return (
 
-            <td><div style= {{ textAlign: 'center', padding : 30 }}>{this.props.category + ': ' + this.props.count}</div></td>
+            <td><div style= {{ textAlign: 'center', padding : 30 }}>{this.props.count}</div></td>
 
         );
     }
@@ -42,7 +42,12 @@ var LoadingRow = React.createClass({
         return (
 
              <tr>
-                <td><div style= {{ textAlign: 'center', padding : 30 }}>{ this.props.message } </div></td> 
+                  <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
+                  <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
+                  <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
+                  <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
+                  <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
+                  <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
             </tr>
 
         );

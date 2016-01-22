@@ -36,7 +36,18 @@ var LetterWordOverview = React.createClass({
         return (
             <div>
                 <table className="proficiencyTable center-x">
-                    <tbody>{ rows }</tbody>
+                <thead>
+                <tr>
+                <th><div style= {{ textAlign: 'center', padding : 30}}>Vowels</div></th>
+                <th><div style= {{ textAlign: 'center', padding : 30}}>Consonants</div></th>
+                <th><div style= {{ textAlign: 'center', padding : 30}}>CV</div></th>
+                <th><div style= {{ textAlign: 'center', padding : 30}}>CVC</div></th>
+                <th><div style= {{ textAlign: 'center', padding : 30}}>CVCC</div></th>
+                <th><div style= {{ textAlign: 'center', padding : 30}}>Irreg</div></th>
+                </tr>
+                </thead>
+
+                <tbody>{ rows }</tbody>
                 </table>
             </div>
         );
