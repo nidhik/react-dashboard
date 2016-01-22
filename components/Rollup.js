@@ -4,6 +4,7 @@ var Tabs = require('./Tabs');
 var _ = require('underscore');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 
+var coordinateWidth = 20;
 
 var BarLabel = React.createClass({
     render () {
@@ -20,7 +21,7 @@ var Bar = React.createClass({
 
          <div>
             <BarLabel name = {this.props.name} />
-            <div className="chartBar" style={{width: this.props.progress * 10}} onClick={ this.selectBar } > { this.props.progress }</div>
+            <div className="chartBar" style={{width: this.props.progress * coordinateWidth}} onClick={ this.selectBar } > { this.props.progress }</div>
          </div>
 
         );
@@ -36,7 +37,7 @@ var XAxisIncrement = React.createClass({
     render () {
             return (
 
-             <div className="xaxis_label" style={{width: 10}}><div>{this.props.title}</div></div>
+             <div className="xaxis_label" style={{width: coordinateWidth}}><div>{this.props.title}</div></div>
 
             );
         }
