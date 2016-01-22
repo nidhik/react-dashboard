@@ -49,7 +49,7 @@ var TrophyRow = React.createClass({
                     </div>
 
         
-                     <div style= {{ textAlign: 'center' }} > { this.props.index  + 1}. { details.trophyTitle }</div>
+                     <div style= {{ textAlign: 'center' }} > { this.props.trophy.trophyIndex }. { details.trophyTitle }</div>
                 </td>
 
                
@@ -96,18 +96,15 @@ var LevelsTable = React.createClass({
         var that = this;
 
         var currentTrophy = this.props.student.get("studentSkills").get("currentLevel");
-        var currentTrophyIndex = currentTrophy ? _.indexOf(_.pluck(this.props.trophies, 'id'), currentTrophy["id"]) : 0;
+        var currentTrophyIndex = currentTrophy ? currentTrophy.trophyIndex : 1;
 
-        
-        
         this.props.trophies.forEach(function(trophy, index) {
 
             rows.push(<TrophyRow 
                 ref={ index == currentTrophyIndex  ? "currentTrophy" : undefined } 
                 trophy = { trophy } 
-                isCurrent = { index == currentTrophyIndex }  
-                isComplete = { index < currentTrophyIndex } 
-                index = { index } 
+                isCurrent = { trophy.trophyIndex == currentTrophyIndex }  
+                isComplete = { trophy.trophyIndex < currentTrophyIndex } 
                 key = { trophy.id } />);
         });
 

@@ -31,8 +31,32 @@ var Levels = React.createClass({
             var trophies = _.map(trophyOrder, function (t, i) {
                 var merged = t;
                 merged.details = trophyDetails[i];
+                merged.trophyIndex = i + 1;
                 return merged;
             });
+
+            var sections = [];
+            _.each(trophies, function (t) {
+
+                var section = _.last(sections);
+                
+                if(!section || t.details.categoryTitle !== section.title) {
+                    // new section
+                    newSection = {};
+                    newSection.title = t.details.categoryTitle;
+                    newSection.start = t.trophyIndex;
+
+                    sections.push(newSection);
+                   
+
+                } else {
+                     // update section
+                    section.end = t.trophyIndex;
+                }
+
+            });
+
+            console.log(sections);
 
             return (
 
