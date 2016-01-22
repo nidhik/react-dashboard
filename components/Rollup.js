@@ -36,7 +36,7 @@ var XAxisIncrement = React.createClass({
     render () {
             return (
 
-             <span className="xaxis_label">{this.props.title}</span>
+             <div className="xaxis_label" style={{width: 10}}><div>{this.props.title}</div></div>
 
             );
         }

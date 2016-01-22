@@ -159,8 +159,6 @@
   color: white;
   display:inline-block;
 
-  border: solid red;
-
 }
 
 .chartLabel {
@@ -177,14 +175,19 @@
 
 .xaxis_label {
     display: inline-block;
-    margin: 0 0 0 1px;
-    
-    position: relative;
-    width: 50px;
+    border: 1px solid blue;
+    width: 20px;
+    height: 200px;
     padding: 10px;
-    text-align: center;
-    white-space:nowrap;
-    border-style: dotted;
+}
+.xaxis_label > div {
+    text-align: right;
+    display:inline-block;
+    border: 1px solid red;
+    width: 200px;
+    height: 20px;
+    transform: rotate(-45deg) translate(-100%, 0);
+    transform-origin: 0 0;
 }
 
 .chartBar:hover { /* change color of bars when hovering over them */
