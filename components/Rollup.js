@@ -4,19 +4,6 @@ var Tabs = require('./Tabs');
 var _ = require('underscore');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 
-var FancyGraph = React.createClass({
-    render() {
-        return (
-            <div className="graph_fancy" data-x-label="Months" data-y-label="Percent (%)">
-                    <span className="bar"></span>
-                    <span className="bar" style={{height: 40}} data-bar-label="Jan" data-bar-value="66%"></span>
-                    <span className="bar" style={{height: 80}} data-bar-label="Jan" data-bar-value="66%"></span>
-                    <span className="bar" style={{height: 150}} data-bar-label="Jan" data-bar-value="66%"></span>
-                    
-                </div>
-            );
-    }
-});
 
 var BarLabel = React.createClass({
     render () {
@@ -49,7 +36,7 @@ var XAxisIncrement = React.createClass({
     render () {
             return (
 
-             <span className="xaxis_label rotate">{this.props.title}</span>
+             <span className="xaxis_label">{this.props.title}</span>
 
             );
         }
@@ -74,9 +61,25 @@ var BarChart = React.createClass({
 
         var that = this;
 
+        var trophiesById = _.groupBy(this.props.trophies, 'id');
+
+        console.log(trophiesById);
+
         var bars = _.map(this.props.students, function(student, i) {
+            
             var name = student.get('nickname');
-            return <Bar name= { name } progress = { i * 3}  handleBarSelected = { that.handleBarSelected.bind(that, name) } key = {student.id}/>
+            var currentLevel = student.get("studentSkills").get("currentLevel");
+            
+            var currentTrophy;
+            if (currentLevel) {
+                currentTrophy = trophiesById[currentLevel.id][0];
+            } 
+
+            var progress =  currentTrophy ? currentTrophy.trophyIndex : 0;
+
+            console.log(name + ": " + progress);
+
+            return <Bar name= { name } progress = { progress }  handleBarSelected = { that.handleBarSelected.bind(that, name) } key = {student.id}/>
         });
         return (
             <div >
@@ -90,14 +93,6 @@ var BarChart = React.createClass({
     handleBarSelected : function (student) {
         console.log(student + " selected");
         this.props.studentSelected(student);
-
-
-                // <Bar name= { "Michael Ellison" } progress = { 4 }  handleBarSelected = { this.handleBarSelected.bind(this, "Michael Ellison") }/>
-                // <Bar name= { "Allison Wonderland" } progress = { 8 }  handleBarSelected = { this.handleBarSelected.bind(this, "Allison Wonderland") }/>
-                // <Bar name= { "Erin Parker" } progress = { 15 }  handleBarSelected = { this.handleBarSelected.bind(this, "Erin Parker") }/>
-                // <Bar name= { "Nidhi Kulkarni" } progress = { 16 }  handleBarSelected = { this.handleBarSelected.bind(this, "Nidhi Kulkarni") }/>
-                // <Bar name= { "Joanne Li" } progress = { 23 }  handleBarSelected = { this.handleBarSelected.bind(this, "Joanne Li") }/>
-                // <Bar name= { "Beth Kendrick" } progress = { 42 }  handleBarSelected = { this.handleBarSelected.bind(this, "Beth Kendrick") }/>
     }
 });
 
@@ -107,7 +102,7 @@ var Overview = React.createClass({
         return (
 
             <div>
-              <BarChart students = { this.props.students } studentSelected = { this.studentSelected }/>
+              <BarChart students = { this.props.students } trophies= { this.props.trophies } studentSelected = { this.studentSelected }/>
             </div>
 
         );
@@ -127,7 +122,7 @@ var Rollup = React.createClass({
             name: "getStudents",
             params: {}
           },
-          trophies: {
+          trophyAppOrder: {
             name: "getTrophies",
             params: {}
           }
@@ -135,12 +130,12 @@ var Rollup = React.createClass({
     },
 
     render () {
-        if (this.data.students && this.data.trophies) {
+        if (this.data.students && this.data.trophyAppOrder) {
 
             return (
 
             <div className="wrapper">
-            <Overview students = { this.data.students } trophies = { this.data.trophies } showStudentDetail = { this.props.showStudentDetail } />
+            <Overview students = { this.data.students } trophies = { this.data.trophyAppOrder.trophies } sections = { this.data.trophyAppOrder.sections } showStudentDetail = { this.props.showStudentDetail } />
             </div>
 
             );

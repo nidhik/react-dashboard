@@ -38,7 +38,7 @@ var TrophyRow = React.createClass({
         var details = this.props.trophy.details;
 
         return (
-            <tr className="trophyRow" style={ this.props.isCurrent ? {borderStyle: "double"} : {borderStyle: "solid"}}> 
+            <tr className="trophyRow" style={ this.props.isCurrent ? {borderStyle: "double", borderColor: 'green'} : {borderStyle: "solid"}}> 
                 
                 <td>
                     

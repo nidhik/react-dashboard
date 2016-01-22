@@ -15,7 +15,7 @@ var Levels = React.createClass({
             name: "getStudents",
             params: {}
           },
-          trophies: {
+          trophyAppOrder: {
             name: "getTrophies",
             params: {}
           }
@@ -23,43 +23,12 @@ var Levels = React.createClass({
     },
 
     render () {
-        if (this.data.students && this.data.trophies) {
-
-            var trophyDetails = this.data.trophies.get("trophyDetails");
-            var trophyOrder = this.data.trophies.get("order");
-
-            var trophies = _.map(trophyOrder, function (t, i) {
-                var merged = t;
-                merged.details = trophyDetails[i];
-                merged.trophyIndex = i + 1;
-                return merged;
-            });
-
-            var sections = [];
-            _.each(trophies, function (t) {
-
-                var section = _.last(sections);
-                
-                if(!section || t.details.categoryTitle !== section.title) {
-                    // new section
-                    newSection = {};
-                    newSection.title = t.details.categoryTitle;
-                    newSection.start = t.trophyIndex;
-                    newSection.end = t.trophyIndex;
-                    sections.push(newSection);
-                   
-
-                } else {
-                     // update section
-                    section.end = t.trophyIndex;
-                }
-
-            });
+        if (this.data.students && this.data.trophyAppOrder) {
 
             return (
 
             <div className = "wrapper" style = {{position:'relative', top:60}}>
-            <LevelsTable student = { this.data.students[0] } trophies = { trophies } sections = { sections }/>
+            <LevelsTable student = { this.data.students[0] } trophies = { this.data.trophyAppOrder.trophies } sections = { this.data.trophyAppOrder.sections }/>
             </div>
 
             );
