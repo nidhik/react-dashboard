@@ -40,18 +40,24 @@ var XAxisIncrement = React.createClass({
 
             );
         }
+
+
 });
 
 var XAxis = React.createClass({
     render () {
+
+            var increments = [];
+            _.each(this.props.sections, function(section) {
+                _.each(_.range(section.start, section.end + 1), function (trophyIndex) {
+                    increments.push(<XAxisIncrement title = { trophyIndex == section.start ? section.title : ""} key = {section.title + " " + trophyIndex }/>)
+                
+                });
+            })
             return (
             <div className="xaxis">
             <BarLabel name = "" />
-            <XAxisIncrement title = "2-letter words" />
-            <XAxisIncrement title = "3-letter words" />
-            <XAxisIncrement title = "Words ending in t " />
-            <XAxisIncrement title = "Words starting with ..." />
-            <XAxisIncrement title = "Doubled Consonants" />
+            { increments }
             </div>
             );
         }
@@ -60,10 +66,7 @@ var BarChart = React.createClass({
     render () {
 
         var that = this;
-
         var trophiesById = _.groupBy(this.props.trophies, 'id');
-
-        console.log(trophiesById);
 
         var bars = _.map(this.props.students, function(student, i) {
             
@@ -77,14 +80,12 @@ var BarChart = React.createClass({
 
             var progress =  currentTrophy ? currentTrophy.trophyIndex : 0;
 
-            console.log(name + ": " + progress);
-
             return <Bar name= { name } progress = { progress }  handleBarSelected = { that.handleBarSelected.bind(that, name) } key = {student.id}/>
         });
         return (
             <div >
                 { bars }
-                <XAxis />
+                <XAxis sections = { this.props.sections }/>
             </div>
 
         );
@@ -102,7 +103,7 @@ var Overview = React.createClass({
         return (
 
             <div>
-              <BarChart students = { this.props.students } trophies= { this.props.trophies } studentSelected = { this.studentSelected }/>
+              <BarChart students = { this.props.students } trophies= { this.props.trophies } sections = { this.props.sections }  studentSelected = { this.studentSelected }/>
             </div>
 
         );
