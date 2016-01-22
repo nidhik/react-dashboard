@@ -21,12 +21,20 @@
     margin: 0 auto;
 }
 
+.overviewPanel {
+    top:100px;
+    position: relative;
+    min-width: 1200px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
 .mainPanel {
     position: relative;
     top: 120px;
     margin: 0 auto;
     max-width: 1500px;
-    min-width: 1200px;
+   
     height: 1000px;
     overflow: hidden;
 

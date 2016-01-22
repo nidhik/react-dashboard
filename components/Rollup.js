@@ -79,9 +79,9 @@ var Rollup = React.createClass({
 
             return (
 
-            <div className="wrapper">
+            <div>
             <LevelsOverview students = { this.data.students } trophies = { this.data.trophyAppOrder.trophies } sections = { this.data.trophyAppOrder.sections } showStudentDetail = { this.props.showStudentDetail } />
-            <LetterWordOverview students = { this.data.students }/>
+            <div style = {{position:'relative', top:30}}><LetterWordOverview students = { this.data.students }/></div>
             </div>
 
             );

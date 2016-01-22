@@ -46,7 +46,7 @@ var App = React.createClass({
              <a className = "logout" onClick={ this.props.logOutHandler }>Log Out</a>
             </div>
             
-            <div className='mainPanel'>
+            <div className='overviewPanel'>
               <Rollup showStudentDetail = { this.showStudentDetail } />
             </div>
 
