@@ -34,7 +34,7 @@ var App = React.createClass({
 
             </div>
             <StudentHeader student = { this.state.student } />
-            <div className='mainPanel'><Tabs /></div>
+            <div className='mainPanel'><Tabs student = { this.state.student }/></div>
 
           </div>
         );

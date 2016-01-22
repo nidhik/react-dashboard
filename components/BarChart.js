@@ -81,7 +81,7 @@ var BarChart = React.createClass({
 
             var progress =  currentTrophy ? currentTrophy.trophyIndex : 0;
 
-            return <Bar name= { name } progress = { progress }  handleBarSelected = { that.handleBarSelected.bind(that, name) } key = {student.id}/>
+            return <Bar name= { name } progress = { progress }  handleBarSelected = { that.handleBarSelected.bind(that, student) } key = {student.id}/>
         });
         return (
             <div className="chart center-x" style={{ width: coordinateWidth * (this.props.trophies.length + 1) + 200}}>
@@ -93,7 +93,7 @@ var BarChart = React.createClass({
     },
 
     handleBarSelected : function (student) {
-        console.log(student + " selected");
+        console.log(student.get('nickname')+ " selected");
         this.props.studentSelected(student);
     }
 });

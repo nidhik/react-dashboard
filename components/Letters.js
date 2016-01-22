@@ -120,7 +120,7 @@ var Letters = React.createClass({
           scores: {
             name: "getScores",
             params: {
-                studentId: "WnHpzJedMu",
+                studentId: this.props.student.id,
                 scoreType: "phonemes"
             }
           },

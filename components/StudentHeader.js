@@ -12,7 +12,7 @@ var StudentHeader = React.createClass({
             <div style= {{ position: "relative", zIndex: 2, top: 20}}> 
             
                 <Avatar/>
-                <div className="center-x" style= {{ textAlign: 'center', fontSize: 30}}><p>{ this.props.student }</p></div>
+                <div className="center-x" style= {{ textAlign: 'center', fontSize: 30}}><p>{ this.props.student.get('nickname') }</p></div>
             
             </div>
             

@@ -16,9 +16,9 @@ var Tabs = React.createClass({
   render: function() {
 
     var contents= [
-      <Letters />,
-      <Words />,
-      <Levels />
+      <Letters student = { this.props.student }/>,
+      <Words student = { this.props.student }/>,
+      <Levels student = { this.props.student }/>
     ];
 
     return (

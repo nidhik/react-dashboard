@@ -95,9 +95,19 @@ var LevelsTable = React.createClass({
         var rows = [];
         var that = this;
 
-        var currentTrophy = this.props.student.get("studentSkills").get("currentLevel");
+        var trophiesById = _.groupBy(this.props.trophies, 'id');
+
+        var currentLevel = this.props.student.get("studentSkills").get("currentLevel");
+            
+        var currentTrophy;
+        if (currentLevel) {
+            currentTrophy = trophiesById[currentLevel.id][0];
+        } 
+
+        console.log("currentTrophy:" + currentTrophy.trophyIndex);
         var currentTrophyIndex = currentTrophy ? currentTrophy.trophyIndex : 1;
 
+        
         var that = this;
         this.props.sections.forEach(function(section) {
             rows.push(<TrophyHeaderRow title = { section.title } start = { section.start } end = { section.end } key = {section.title}/>);
@@ -107,10 +117,10 @@ var LevelsTable = React.createClass({
                 var trophy = that.props.trophies[trophyIndex - 1];
 
                 rows.push(<TrophyRow 
-                ref={ trophy.trophyIndex == currentTrophyIndex  ? "currentTrophy" : undefined } 
+                ref={ trophyIndex == currentTrophyIndex  ? "currentTrophy" : undefined } 
                 trophy = { trophy } 
-                isCurrent = { trophy.trophyIndex == currentTrophyIndex }  
-                isComplete = { trophy.trophyIndex < currentTrophyIndex } 
+                isCurrent = { trophyIndex == currentTrophyIndex }  
+                isComplete = { trophyIndex < currentTrophyIndex } 
                 key = { trophy.id } />);
             });
         });

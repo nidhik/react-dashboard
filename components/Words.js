@@ -119,7 +119,7 @@ var Words = React.createClass({
           scores: {
             name: "getScores",
             params: {
-                studentId: "WnHpzJedMu",
+                studentId: this.props.student.id,
                 scoreType: "words"
             }
           },
