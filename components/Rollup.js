@@ -2,6 +2,7 @@ var React = require('react');
 var Parse = require('parse');
 var Tabs = require('./Tabs');
 var BarChart = require('./BarChart');
+var StudentSummary = require('./StudentSummary');
 var _ = require('underscore');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
 
@@ -43,10 +44,14 @@ var Rollup = React.createClass({
     render () {
         if (this.data.students && this.data.trophyAppOrder) {
 
+
             return (
 
             <div className="wrapper">
             <Overview students = { this.data.students } trophies = { this.data.trophyAppOrder.trophies } sections = { this.data.trophyAppOrder.sections } showStudentDetail = { this.props.showStudentDetail } />
+
+            <StudentSummary student = { this.data.students[0] } />
+
             </div>
 
             );
