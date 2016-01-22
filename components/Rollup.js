@@ -13,9 +13,9 @@ var LevelsOverview = React.createClass({
     render() {
         return (
 
-            <div>
-              <BarChart students = { this.props.students } trophies= { this.props.trophies } sections = { this.props.sections }  studentSelected = { this.studentSelected }/>
-            </div>
+
+            <BarChart students = { this.props.students } trophies= { this.props.trophies } sections = { this.props.sections }  studentSelected = { this.studentSelected }/>
+
 
         );
     },
@@ -28,17 +28,19 @@ var LevelsOverview = React.createClass({
 var LetterWordOverview = React.createClass({
 
     render() {
+        var rows = [];
+        this.props.students.forEach(function(student) {
+            rows.push(<StudentSummary student = { student } key = { student.id } />);
+        });
+
         return (
-
             <div>
-              <StudentSummary student = { this.props.students[0] } />
+                <table className="proficiencyTable center-x">
+                    <tbody>{ rows }</tbody>
+                </table>
             </div>
-
         );
-    },
 
-    studentSelected : function (student) {
-        this.props.showStudentDetail(student);
     }
 });
 

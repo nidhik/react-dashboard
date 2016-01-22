@@ -83,7 +83,7 @@ var BarChart = React.createClass({
             return <Bar name= { name } progress = { progress }  handleBarSelected = { that.handleBarSelected.bind(that, name) } key = {student.id}/>
         });
         return (
-            <div className="chart" style={{ width: coordinateWidth * (this.props.trophies.length + 1) + 200}}>
+            <div className="chart center-x" style={{ width: coordinateWidth * (this.props.trophies.length + 1) + 200}}>
                 { bars }
                 <XAxis sections = { this.props.sections }/>
             </div>
