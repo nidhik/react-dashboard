@@ -21,6 +21,13 @@
     margin: 0 auto;
 }
 
+.avatar {
+    background-image: url('../avatar.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center
+}
+
 .overviewPanel {
     top:100px;
     position: relative;
