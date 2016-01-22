@@ -18,18 +18,29 @@ var Summary = React.createClass({
     }
 });
 
+
+var StudentColumn = React.createClass({
+
+    render() {
+
+         return (
+                <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.student.get('nickname') } </div></td> 
+            );
+    }
+});
 var StudentRow = React.createClass({
 
     render() {
 
          return (
                 <tr>
-                  <Summary category ='Vowels' count = {this.props.counts['Vowels']} />
-                  <Summary category ='Consonants' count = {this.props.counts['Consonants']} />
-                  <Summary category ='CV' count = {this.props.counts['CV']} />
-                  <Summary category ='CVC' count = {this.props.counts['CVC']} />
-                  <Summary category ='CVCC' count = {this.props.counts['CVCC']} />
-                  <Summary category ='Irreg' count = {this.props.counts['Irreg']} />
+                <StudentColumn student = {this.props.student} />
+                <Summary category ='Vowels' count = {this.props.counts['Vowels']} />
+                <Summary category ='Consonants' count = {this.props.counts['Consonants']} />
+                <Summary category ='CV' count = {this.props.counts['CV']} />
+                <Summary category ='CVC' count = {this.props.counts['CVC']} />
+                <Summary category ='CVCC' count = {this.props.counts['CVCC']} />
+                <Summary category ='Irreg' count = {this.props.counts['Irreg']} />
                 </tr>
             );
     }
@@ -42,6 +53,7 @@ var LoadingRow = React.createClass({
         return (
 
              <tr>
+                    <StudentColumn student = {this.props.student} />
                   <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
                   <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
                   <td><div style= {{ textAlign: 'center', padding : 30}}>{ this.props.message } </div></td> 
@@ -69,12 +81,12 @@ var StudentSummary = React.createClass({
     render () {
         if (this.data.counts) {
             return ( 
-                <StudentRow counts = {this.data.counts} /> 
+                <StudentRow counts = {this.data.counts} student= {this.props.student}/> 
             );
         }
         
         return (
-            <LoadingRow message = { 'Loading...' }/>
+            <LoadingRow message = { 'Loading...' } student= {this.props.student}/>
         );
         
     }

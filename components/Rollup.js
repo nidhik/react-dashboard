@@ -38,6 +38,7 @@ var LetterWordOverview = React.createClass({
                 <table className="proficiencyTable center-x">
                 <thead>
                 <tr>
+                <th><div style= {{ textAlign: 'center', padding : 30}}></div></th>
                 <th><div style= {{ textAlign: 'center', padding : 30}}>Vowels</div></th>
                 <th><div style= {{ textAlign: 'center', padding : 30}}>Consonants</div></th>
                 <th><div style= {{ textAlign: 'center', padding : 30}}>CV</div></th>
@@ -80,8 +81,10 @@ var Rollup = React.createClass({
             return (
 
             <div>
+            
             <LevelsOverview students = { this.data.students } trophies = { this.data.trophyAppOrder.trophies } sections = { this.data.trophyAppOrder.sections } showStudentDetail = { this.props.showStudentDetail } />
             <div style = {{position:'relative', top:30}}><LetterWordOverview students = { this.data.students }/></div>
+            
             </div>
 
             );
