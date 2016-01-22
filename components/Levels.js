@@ -2,6 +2,7 @@ var React = require('react');
 var Parse = require('parse');
 var LevelsTable = require('./LevelsTable');
 var ParseCloudCodeMixin = require('./ParseCloudCodeMixin');
+var _ = require('underscore');
 
 
 
@@ -24,10 +25,19 @@ var Levels = React.createClass({
     render () {
         if (this.data.students && this.data.trophies) {
 
+            var trophyDetails = this.data.trophies.get("trophyDetails");
+            var trophyOrder = this.data.trophies.get("order");
+
+            var trophies = _.map(trophyOrder, function (t, i) {
+                var merged = t;
+                merged.details = trophyDetails[i];
+                return merged;
+            });
+
             return (
 
             <div className = "wrapper" style = {{position:'relative', top:60}}>
-            <LevelsTable student = { this.data.students[0] } trophies = { this.data.trophies } />
+            <LevelsTable student = { this.data.students[0] } trophies = { trophies } />
             </div>
 
             );
