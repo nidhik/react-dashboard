@@ -8,21 +8,21 @@ var TrophyHeaderRow = React.createClass({
 
    
     render () {
-    
+
         return (
             <tr className="trophyHeaderRow" style={{ borderStyle: "solid" }}> 
                 
                 <td>
                     
                     <div className = "trophyCategory" style= {{ textAlign: 'center' }}>
-                       <p>this.props.categoryTitle</p>  
+                       <p>{ this.props.title }</p>  
                     </div>
                 </td>
 
-               
+               <td/>
                 <td> 
                     <div style= {{ textAlign: 'center'}} >
-                    { this.props.trophyRange }
+                    { this.props.start != this.props.end ? "Trophies " + this.props.start + " - " + this.props.end : "Trophy " + this.props.start }
                     </div>
 
                 </td>
@@ -98,14 +98,21 @@ var LevelsTable = React.createClass({
         var currentTrophy = this.props.student.get("studentSkills").get("currentLevel");
         var currentTrophyIndex = currentTrophy ? currentTrophy.trophyIndex : 1;
 
-        this.props.trophies.forEach(function(trophy, index) {
+        var that = this;
+        this.props.sections.forEach(function(section) {
+            rows.push(<TrophyHeaderRow title = { section.title } start = { section.start } end = { section.end } key = {section.title}/>);
 
-            rows.push(<TrophyRow 
-                ref={ index == currentTrophyIndex  ? "currentTrophy" : undefined } 
+            _.each(_.range(section.start, section.end + 1), function (trophyIndex) {
+
+                var trophy = that.props.trophies[trophyIndex - 1];
+
+                rows.push(<TrophyRow 
+                ref={ trophy.trophyIndex == currentTrophyIndex  ? "currentTrophy" : undefined } 
                 trophy = { trophy } 
                 isCurrent = { trophy.trophyIndex == currentTrophyIndex }  
                 isComplete = { trophy.trophyIndex < currentTrophyIndex } 
                 key = { trophy.id } />);
+            });
         });
 
 

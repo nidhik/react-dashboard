@@ -45,7 +45,7 @@ var Levels = React.createClass({
                     newSection = {};
                     newSection.title = t.details.categoryTitle;
                     newSection.start = t.trophyIndex;
-
+                    newSection.end = t.trophyIndex;
                     sections.push(newSection);
                    
 
@@ -56,12 +56,10 @@ var Levels = React.createClass({
 
             });
 
-            console.log(sections);
-
             return (
 
             <div className = "wrapper" style = {{position:'relative', top:60}}>
-            <LevelsTable student = { this.data.students[0] } trophies = { trophies } />
+            <LevelsTable student = { this.data.students[0] } trophies = { trophies } sections = { sections }/>
             </div>
 
             );
