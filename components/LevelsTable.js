@@ -14,15 +14,15 @@ var TrophyHeaderRow = React.createClass({
                 
                 <td>
                     
-                    <div className = "trophyCategory" style= {{ textAlign: 'center' }}>
-                       <p>{ this.props.title }</p>  
+                    <div className = "trophyCategory" style= {{ textAlign: 'center' ,padding: 20}}>
+                       <b>{ this.props.title }</b>
                     </div>
                 </td>
 
                <td/>
                 <td> 
-                    <div style= {{ textAlign: 'center'}} >
-                    { this.props.start != this.props.end ? "Trophies " + this.props.start + " - " + this.props.end : "Trophy " + this.props.start }
+                    <div style= {{ textAlign: 'center', padding: 20}} >
+                    <b>{ this.props.start != this.props.end ? "Trophies " + this.props.start + " - " + this.props.end : "Trophy " + this.props.start }</b>
                     </div>
 
                 </td>
@@ -78,8 +78,8 @@ var LevelsTable = React.createClass({
      handleScroll() {
         var me = ReactDOM.findDOMNode(this);
         var row = ReactDOM.findDOMNode(this.refs.currentTrophy);
-        console.log("scrolled: " + me.scrollTop);
-        console.log("current trophy row offset: " + row.offsetTop);
+        // console.log("scrolled: " + me.scrollTop);
+        // console.log("current trophy row offset: " + row.offsetTop);
     },
 
     componentDidMount() {
@@ -87,7 +87,7 @@ var LevelsTable = React.createClass({
         var row = ReactDOM.findDOMNode(this.refs.currentTrophy);
         console.log("initial  " + me.scrollTop);
         console.log(" initial current trophy row offset: " + row.offsetTop);
-        me.scrollTop = row.offsetTop;
+     //   me.scrollTop = row.offsetTop;
     },
 
     render: function() {
@@ -118,7 +118,7 @@ var LevelsTable = React.createClass({
 
         return (
             <div className="scroll-y" onScroll= {this.handleScroll}>
-            <table>
+            <table className= "center-x">
                 <tbody>{ rows }</tbody>
             </table>
             </div>

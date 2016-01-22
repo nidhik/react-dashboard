@@ -71,7 +71,7 @@ var PhonTable = React.createClass({
 
         return (
             <div>
-            <table className = "proficiencyTable">
+            <table className = "proficiencyTable center-x">
                 <tbody>{ rows }</tbody>
             </table>
             </div>
@@ -101,8 +101,7 @@ var ProficencyComponent = React.createClass({
             <div className="wrapper">
 
             <Switch toggle = { this.toggle } />
-            <div className="scroll-y " style = {{position:'relative', top:30}}><PhonTable phonemes = { phonOrder } scores = { this.props.scores } /></div>
-
+            <div className="scroll-y" style = {{position:'relative', top:30}}><PhonTable phonemes = { phonOrder } scores = { this.props.scores } /></div>
             </div>
 
         );

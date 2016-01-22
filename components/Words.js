@@ -69,7 +69,7 @@ var WordTable = React.createClass({
 
         return (
             <div>
-            <table className = "proficiencyTable">
+            <table className = "proficiencyTable center-x">
                 <tbody>{ rows }</tbody>
             </table>
             </div>
